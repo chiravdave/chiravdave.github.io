@@ -12,6 +12,15 @@ NOTE: This is the custom jQuery file for the template
             $body = $('body');
     
     jQuery(document).ready(function($){
+	/*======== Closing Navbar when clicked outside during collapsed mode ===========*/
+        $(document).click(function (event) {
+        var clickover = $(event.target);
+        var $navbar = $(".navbar-collapse");               
+        var _opened = $navbar.hasClass("in");
+        if (_opened === true && !clickover.hasClass("navbar-toggle")) {      
+           $navbar.collapse('hide');
+            }
+        });
 
         /*======== Sticky header ===========*/
         $('.navbar-collapse a').on('click',function(){
